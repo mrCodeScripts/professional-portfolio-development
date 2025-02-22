@@ -1,0 +1,377 @@
+@import url("variable.css");
+ 
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    height: auto;
+    background-color: transparent;
+    /* overflow-x: hidden; */
+}
+
+#bouncing-bl {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-3);
+    /* background: linear-gradient(
+        #000,
+        var(--dark-1),
+        var(--dark-3), 
+        var(--dark-3), 
+        var(--dark-8)); */
+    z-index: -2;
+    position: fixed;
+    top: 0;
+}
+
+.main-header {
+    width: 100%;
+    height: 100px;
+}
+
+.main-header .inner-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+}
+
+.main-header .inner-header #logo #img-logo {
+    width: 50px;
+    height: 50px;
+}
+
+#img-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.main-header #navigations {
+    margin: 0 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-header #navigations .nav-btns {
+    border-radius: 15px;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--dark-3);
+    color: var(--light-4);
+    outline: none;
+    border: none;
+    margin: 0 20px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+.nav-btns .btn-text {
+    position: relative;
+    z-index: 1; /* Ensures the text is above the pseudo-elements */
+    background-color: var(--dark-3);
+    display: block;
+    padding: 15px 25px;
+    margin: 1px;
+    border-radius: inherit;
+}
+
+.nav-btns::before,
+.nav-btns::after {
+    content: "";
+    width: 104%;
+    height: 104%;
+    position: absolute;
+    top: -0.05rem;
+    left: -0.13rem;
+    border-radius: 15px;
+    transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1),
+                clip-path 0.4s cubic-bezier(1, 0.250, 0.250, 1) 0.2s;
+    z-index: -1;
+    background-color: var(--info-1);
+    clip-path: inset(0 100% 0 0);
+    transform-origin: left;
+}
+
+.nav-btns::after {
+    background-color: var(--dark-4);
+    clip-path: none;
+    z-index: -2; /* Even further back */
+}
+
+.nav-btns:hover::before {
+    clip-path: inset(0 0 0 0);
+    border-radius: 15px;
+}
+
+.nv-1 {
+    animation: r-l 0.2s ease;
+}
+
+.nv-2 {
+    animation: r-l 0.5s ease;
+}
+
+.nv-3 {
+    animation: r-l 0.8s ease;
+}
+
+.nv-4 {
+    animation: r-l 1.1s ease;
+}
+
+.main-header #navigations ul li a:hover {
+    color: var(--light-4);
+    border-color: var(--info-1) !important;
+}
+
+.main-header #navigations ul li a:active {
+    color: var(--light-4);
+    border-color: var(--info-1) !important;
+}
+
+.main-header #navigations ul li a:focus {
+    color: var(--light-4);
+    border-color: var(--info-1) !important;
+}
+
+.main-header #navigations ul li a:focus-visible {
+    color: var(--light-4);
+    border-color: var(--info-1) !important;
+}
+
+
+
+/* Main Introduction */
+.main-introduction {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.main-introduction .main-introduction-svg-animation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: inherit;
+    height: 100%;
+    background-color: transparent;
+    z-index: -1;
+    animation: r-l-2 4.9s cubic-bezier(0.375, 0.82, 0.065, 1) 1;
+}
+
+.main-introduction-svg-animation .m-i-svg {
+    stroke: url("#power-source");
+    fill: none;
+    animation: vein 8s cubic-bezier(1, 1, 0.565, 1) infinite;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 1000;
+}
+
+@keyframes vein {
+    from {
+        stroke-dashoffset: 10000;
+    } to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.main-introduction .main-introduction-innerwrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px 130px;
+    align-items: center;
+}
+
+.main-introduction-innerwrapper .developer-img {
+    margin: 0 0 0 0;
+}
+
+.main-introduction-innerwrapper .developer-img .dev-img-inner {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 100%;
+    border: 1px solid var(--info-1);
+    box-shadow: 0 0 65px 0px var(--info-1);
+    animation: show-main-developer-style 0.9s cubic-bezier(0.375, 0.82, 0.065, 1);
+}
+
+.main-introduction-innerwrapper .developer-img .dev-img-inner:hover {
+    box-shadow: 0 0 65px 0px var(--info-1);
+}
+
+.dev-img-inner img {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    image-rendering: crisp-edges;
+    object-position: -5px;
+}
+
+.main-introduction-innerwrapper .developer-introduction {
+    width: 100%;
+}
+
+.developer-introduction .dev-intro-inner-wrapper {
+    padding: 10px;
+    margin-left: 70px;
+}
+
+.dev-intro-inner-wrapper .upper-txt-heading {
+    color: var(--light-4);
+    user-select: none;
+}
+
+.upper-txt-heading p {
+    font-size: 3.0em;
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-family:  "Montserrat", "Fira Code", sans-serif;
+    animation-name: b-t;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+
+.bottom-txt-intro .p-txt-intro {
+    color: var(--dark-7);
+    font-size: 0.94em;
+    font-family: "JetBrains Mono", "Fira Code", sans-serif;
+    font-weight: 500;
+    user-select: none;
+    animation-name: b-t;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+
+}
+
+.developer-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.developer-btns button {
+    padding: 15px 35px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: "Fira Code";
+    font-size: 0.9em;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow 0.2s ease 0.2s,
+                background-color 0.3s ease 0.2s,
+                transform 0.2s ease 0.2s;
+}
+
+.developer-btns button:first-child:hover {
+    transform: translateX(8px) translateY(-6px);
+}
+
+.developer-btns button:first-child {
+    background-color: var(--important-1);
+    border: 1px solid var(--important-1);
+    margin-right: 10px;
+    box-shadow:  0 0 var(--dark-3), 0 0 var(--important-1);
+    animation-name: r-l;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+}
+
+.developer-btns button:first-child:hover {
+    box-shadow: -8.8px 8.8px 0 2px var(--dark-3), 
+                -9px 9px 0 2px var(--important-1), 
+                -9px 9px 0 3px  var(--important-1);
+    text-shadow: 1px 1px 0 var(--important-1);
+}
+
+.developer-btns button:last-child {
+    background-color: var(--dark-3);
+    color: var(--important-1);
+    border: 1px solid var(--light-4);
+    margin-left: 10px;
+    animation-name: r-l;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+}
+
+.developer-lang-experties {
+    width: 100%;
+    height: auto;
+    margin-top: 125px;
+}
+
+.developer-lang-experties .lang-icon-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 100px;
+    justify-content: flex-end;
+}
+
+.developer-lang-experties ul .icons {
+    width: 80px;
+    height: 80px;
+    background-color: var(--dark-1);
+    padding: 15px 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.developer-lang-experties ul .icons svg {
+    width: 100%;
+    height: 100%;
+}
+
+.developer-lang-experties ul .icons svg {
+    fill: var(--dark-5);
+    animation-name: show-slow;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+}
+
+@keyframes show-slow {
+    0% {
+        opacity: 0;
+        scale: 0;
+        fill: var(--dark-5);
+    } 50% {
+        opacity: 0.5;
+        scale: 0.5;
+        filL: var(--info-1);
+    } 100% {
+        opacity: 1;
+        scale: 1;
+        fill: var(--dark-5);
+    }
+}
+
+.main-footer {
+    width: 100%;
+    height: 200px;
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-footer .footer-inner-wrapper {
+    flex: 1;
+    margin: 30px 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: var(--dark-1);
+}
+
