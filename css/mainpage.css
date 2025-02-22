@@ -171,12 +171,104 @@ body {
 .main-introduction-svg-animation .m-i-svg {
     stroke: url("#power-source");
     fill: none;
-    animation: vein 8s cubic-bezier(1, 1, 0.565, 1) infinite;
-    stroke-width: 3;
+    stroke-width: 2;
     fill: none;
     stroke-dasharray: 4000;
     stroke-dashoffset: 1000;
 }
+
+.main-introduction-svg-animation #m-i-svg-line-php {
+    animation: vein 8s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #777bb3) 
+            drop-shadow(0 0 15px #4f5d95) 
+            drop-shadow(0 0 25px #4f5d95);
+}
+
+.main-introduction-svg-animation #m-i-svg-line-js {
+    animation: vein 8.2s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #f7df1e) 
+            drop-shadow(0 0 15px #ffea70) 
+            drop-shadow(0 0 25px #ffea70);
+}
+
+.main-introduction-svg-animation #m-i-svg-line-react {
+    animation: vein 8.4s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #61dafb) 
+            drop-shadow(0 0 15px #00eaff) 
+            drop-shadow(0 0 25px #00eaff);
+}
+
+.main-introduction-svg-animation #m-i-svg-line-html {
+    animation: vein 8.6s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #e34c26) 
+            drop-shadow(0 0 15px #ff4500) 
+            drop-shadow(0 0 25px #ff4500);
+}
+
+.main-introduction-svg-animation #m-i-svg-line-css {
+    animation: vein 8.8s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #2965f1) 
+            drop-shadow(0 0 15px #1e90ff) 
+            drop-shadow(0 0 25px #1e90ff);
+}
+
+.main-introduction-svg-animation #m-i-svg-line-mysql {
+    animation: vein 9s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #00758f) 
+            drop-shadow(0 0 15px #f29111) 
+            drop-shadow(0 0 25px #f29111);
+}
+
+.main-introduction-svg-animation #m-i-svg-line-nodejs {
+    animation: vein 9s cubic-bezier(1, 1, 0.565, 1) infinite;
+    filter: drop-shadow(0 0 5px #68a063) 
+            drop-shadow(0 0 15px #4caf50) 
+            drop-shadow(0 0 25px #4caf50);
+}
+
+
+
+
+
+/*
+NODEJS
+filter: drop-shadow(0 0 5px #68a063) 
+        drop-shadow(0 0 15px #4caf50) 
+        drop-shadow(0 0 25px #4caf50);
+
+CSS
+filter: drop-shadow(0 0 5px #2965f1) 
+        drop-shadow(0 0 15px #1e90ff) 
+        drop-shadow(0 0 25px #1e90ff);
+
+HTML
+filter: drop-shadow(0 0 5px #e34c26) 
+        drop-shadow(0 0 15px #ff4500) 
+        drop-shadow(0 0 25px #ff4500);
+
+
+REACT:
+filter: drop-shadow(0 0 5px #61dafb) 
+        drop-shadow(0 0 15px #00eaff) 
+        drop-shadow(0 0 25px #00eaff);
+
+
+JS
+filter: drop-shadow(0 0 5px #f7df1e) 
+        drop-shadow(0 0 15px #ffea70) 
+        drop-shadow(0 0 25px #ffea70);
+
+PHP
+filter: drop-shadow(0 0 5px #777bb3) 
+        drop-shadow(0 0 15px #4f5d95) 
+        drop-shadow(0 0 25px #4f5d95);
+
+MYSQL
+filter: drop-shadow(0 0 5px #00758f) 
+        drop-shadow(0 0 15px #f29111) 
+        drop-shadow(0 0 25px #f29111);
+*/
+
 
 @keyframes vein {
     from {
@@ -322,14 +414,154 @@ body {
     justify-content: flex-end;
 }
 
+
+#php svg {
+    animation: glow-ic-php 8s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+#js svg {
+    animation: glow-ic-js 8.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+#react svg {
+    animation: glow-ic-react 8.9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+#html svg {
+    animation: glow-ic-html 9.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+#css svg {
+    animation: glow-ic-css 9.9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+#mysql svg {
+    animation: glow-ic-mysql 10.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+#nodejs svg {
+    animation: glow-ic-nodejs 10.9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+}
+
+@keyframes glow-ic-php {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 15px #777bb3) 
+                drop-shadow(0 0 15px #4f5d95) 
+                drop-shadow(0 0 25px #4f5d95);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-js {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #f7df1e) 
+                drop-shadow(0 0 15px #ffea70) 
+                drop-shadow(0 0 25px #ffea70);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-react {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #61dafb) 
+                drop-shadow(0 0 15px #00eaff) 
+                drop-shadow(0 0 25px #00eaff);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-html {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #e34c26) 
+                drop-shadow(0 0 15px #ff4500) 
+                drop-shadow(0 0 25px #ff4500);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-css {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #2965f1) 
+                drop-shadow(0 0 15px #1e90ff) 
+                drop-shadow(0 0 25px #1e90ff);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-mysql {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #00758f) 
+                drop-shadow(0 0 15px #f29111) 
+                drop-shadow(0 0 25px #f29111);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-nodejs {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #68a063) 
+                drop-shadow(0 0 15px #4caf50) 
+                drop-shadow(0 0 25px #4caf50);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+
+
+
+
 .developer-lang-experties ul .icons {
-    width: 80px;
-    height: 80px;
-    background-color: var(--dark-1);
-    padding: 15px 10px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--dark-3);
+    padding: 15px 20px;
     border-radius: 10px;
     margin: 0 10px;
 }
+
+
 
 .developer-lang-experties ul .icons svg {
     width: 100%;
