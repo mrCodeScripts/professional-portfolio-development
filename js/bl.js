@@ -19,12 +19,10 @@ window.addEventListener("resize", () => {
     canvas.height = newH;
 });
 
-
-
 function randomColor  () {
     inc++;
     return `hsl(${inc}, 100%, 50%)`;
-}
+};
 
 class blParticles {
     constructor (x, y, vx, vy, c, r, s) {
@@ -94,19 +92,6 @@ for (let i = 0; i < population; i++) {
     ));
 }
 
-// const userDirection = new blParticles(0, 0, 0, 0, "#fff", 30, "#fff");
-// 
-// document.addEventListener("mousemove", (e) => {
-    // const clientX  = e.clientX;
-    // const clientY  = e.clientY;
-    // container[0].x = 0;
-    // container[0].y = 0;
-    // container[0].r = 30;
-    // container[0].x = clientX;
-    // container[0].y = clientY;
-    // console.log(userDirection);
-// });
-
 function resolveCollision(b1, b2) {
     let dx = b2.x - b1.x;
     let dy = b2.y - b1.y;
@@ -151,7 +136,7 @@ function animation () {
     });
 
     for (let i = 0; i < container.length; i++) {
-        for (let j = i + 1; j < container.length; j++) { // j starts at i+1 to avoid redundant comparisons
+        for (let j = i + 1; j < container.length; j++) { 
             const b1 = container[i];
             const b2 = container[j];
 
@@ -167,60 +152,10 @@ function animation () {
             }
 
             const ballD = d - (b1.r + b2.r);
-            /*
-            if (ballD < 30) {
-                ctx.beginPath();
-                ctx.moveTo(b1.x, b1.y);
-                ctx.lineTo(b2.x, b2.y);
-                ctx.strokeStyle = "#00f09f";
-                ctx.stroke();
-                ctx.closePath();
-            }
-            */
+
+            // REMINDER: THIS PART OF THE CODE IS NOT IMPLEMENTED (NO TOUCH DETECTION)
         }
     }
 }
 
 window.setInterval(() => animation(), fps/1000);
-
-/**
- * Hero Section
-Hey, I'm [Your Name], a web developer passionate about building high-quality websites and applications. I specialize in creating fast, responsive, and secure web solutions. Let's build something awesome together.
-
-About Me
-I'm a full-stack web developer with experience in PHP, JavaScript, and modern front-end frameworks. I enjoy solving complex problems and delivering seamless user experiences. When I'm not coding, I create content to help others learn web development.
-
-Skills
-
-Frontend: HTML, CSS, JavaScript (Vanilla, React)
-
-Backend: PHP, Routing, Security
-
-Other: OBS for content, Video Editing, Copywriting
-
-Projects
-
-School Management System – A secure, fully functional system for managing students, teachers, and classes.
-
-Task Manager – An interactive tool for organizing and tracking tasks efficiently.
-
-Frontend Mini-Projects – A collection of small, creative web applications showcasing various UI/UX techniques.
-
-Services
-
-Custom Web Development
-
-Frontend/UI Design
-
-Backend Security Setup
-
-Content Creation for Web Dev Tutorials
-
-Testimonials
-"[Your Name] is a skilled and dedicated developer who delivers high-quality work on time. Highly recommended!" – [Client Name]
-
-Contact Me
-Reach out to me via email at [your email] or connect with me on [your social media links]. Let's work together!
-
-
- */

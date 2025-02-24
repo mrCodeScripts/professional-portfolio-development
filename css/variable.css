@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --dark-1: #1E1E1E;
@@ -9,6 +9,7 @@
     --dark-6: #797979;
     --dark-7: #C4C4C4;
     --dark-8: #434343;
+    --dark-9: #121212;
     --light-1: #D9D9D9;
     --light-2: #FFF;
     --light-3: #f4f0f0;
@@ -55,6 +56,40 @@
     background-color: var(--dark-3) !important;
 }
 
+.show {
+    opacity: 1 !important;
+}
+
+.hide {
+    opacity: 0 !important;
+}
+
+.icon-show-lang {
+    transform: translateX(-0rem) !important;
+}
+
+@keyframes vein {
+    from {
+        stroke-dashoffset: 10000;
+    } to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes vein-r {
+    to {
+        stroke-dashoffset: 10000;
+    }
+}
+
+@keyframes h-s {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
 @keyframes b-t {
     from {
         opacity: 0;
@@ -76,12 +111,10 @@
 }
 
 @keyframes r-l-2 {
-    0% {
-        opacity: 0;
-    } 50% {
-        opacity: 0;
-    } 100% {
-        opacity: 1;
+    from {
+        opacity: 0;    
+    } to {
+        opacity: 1;    
     }
 }
 
@@ -137,4 +170,123 @@
     }
 }
 
+@keyframes glow-ic-php {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 15px #777bb3) 
+                drop-shadow(0 0 15px #4f5d95) 
+                drop-shadow(0 0 25px #4f5d95);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
 
+@keyframes glow-ic-js {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #f7df1e) 
+                drop-shadow(0 0 15px #ffea70) 
+                drop-shadow(0 0 25px #ffea70);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-react {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #61dafb) 
+                drop-shadow(0 0 15px #00eaff) 
+                drop-shadow(0 0 25px #00eaff);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-html {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #e34c26) 
+                drop-shadow(0 0 15px #ff4500) 
+                drop-shadow(0 0 25px #ff4500);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-css {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #2965f1) 
+                drop-shadow(0 0 15px #1e90ff) 
+                drop-shadow(0 0 25px #1e90ff);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-mysql {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #00758f) 
+                drop-shadow(0 0 15px #f29111) 
+                drop-shadow(0 0 25px #f29111);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes glow-ic-nodejs {
+    0% {
+        filter: none;
+        fill: var(--dark-5);
+    } 50% {
+        filter: drop-shadow(0 0 5px #68a063) 
+                drop-shadow(0 0 15px #4caf50) 
+                drop-shadow(0 0 25px #4caf50);
+        fill: #fff;
+    } 100% {
+        filter: none;
+        fill: var(--dark-5);
+    }
+}
+
+@keyframes show-slow {
+    0% {
+        opacity: 0;
+        scale: 0;
+        fill: var(--dark-5);
+    } 50% {
+        opacity: 0.5;
+        scale: 0.5;
+        filL: var(--info-1);
+    } 100% {
+        opacity: 1;
+        scale: 1;
+        fill: var(--dark-5);
+    }
+}

@@ -9,29 +9,25 @@ body {
     display: flex;
     flex-direction: column;
     width: 99%;
-    height: auto;
+    height: 100%;
     background-color: transparent;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 #bouncing-bl {
     width: 100%;
     height: 100%;
-    background-color: var(--dark-3);
-    /* background: linear-gradient(
-        #000,
-        var(--dark-1),
-        var(--dark-3), 
-        var(--dark-3), 
-        var(--dark-8)); */
+    background-color: var(--dark-9);
     z-index: -2;
     position: fixed;
-    top: 0;
+    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .main-header {
     width: 100%;
-    height: 100px;
+    height: auto;
+    margin-bottom: 50px;
 }
 
 .main-header .inner-header {
@@ -82,6 +78,15 @@ body {
     border-radius: inherit;
 }
 
+.nav-btns .menu {
+    padding: 10px 15px;
+}
+
+.nav-btns .btn-text svg {
+    width: 1.8em;
+    height: 1.8em;
+}
+
 .nav-btns::before,
 .nav-btns::after {
     content: "";
@@ -92,38 +97,55 @@ body {
     left: -0.13rem;
     border-radius: 15px;
     transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1),
-                clip-path 0.4s cubic-bezier(1, 0.250, 0.250, 1) 0.2s;
+                transform 0.4s cubic-bezier(1, 0.250, 0.250, 1) 0.2s;
     z-index: -1;
+    will-change: background-color clip-path;
     background-color: var(--info-1);
-    clip-path: inset(0 100% 0 0);
     transform-origin: left;
 }
 
+.nav-btns::before {
+    transform: scaleX(0);
+}
 .nav-btns::after {
     background-color: var(--dark-4);
-    clip-path: none;
-    z-index: -2; /* Even further back */
+    z-index: -2;
 }
-
 .nav-btns:hover::before {
-    clip-path: inset(0 0 0 0);
+    transform: scaleX(1);
     border-radius: 15px;
 }
 
+.special-menu svg {
+    transition: filter 0.2s cubic-bezier(1, 1, 0.565, 1);
+}
+.special-menu:hover svg {
+    filter: drop-shadow(0 0 5px #61dafb) 
+            drop-shadow(0 0 15px #00eaff);
+            /* drop-shadow(0 0 25px #00eaff); */
+    fill: #fff;
+}
+
+
+
 .nv-1 {
-    animation: r-l 0.2s ease;
+    animation: r-l 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .nv-2 {
-    animation: r-l 0.5s ease;
+    animation: r-l 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .nv-3 {
-    animation: r-l 0.8s ease;
+    animation: r-l 1.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .nv-4 {
-    animation: r-l 1.1s ease;
+    animation: r-l 2.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nv-5 {
+    animation: r-l 3.1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .main-header #navigations ul li a:hover {
@@ -157,78 +179,42 @@ body {
     position: relative;
 }
 
+
+/* Main Introduction SVG Animations */
 .main-introduction .main-introduction-svg-animation {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: inherit;
+    transform: translateX(0) translateY(0);
+    /* border: 1px solid red; */
+    width: 100%;
     height: 100%;
     background-color: transparent;
     z-index: -1;
-    animation: r-l-2 4.9s cubic-bezier(0.375, 0.82, 0.065, 1) 1;
+    opacity: 0;
+    transition: opacity 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
 }
 
 .main-introduction-svg-animation .m-i-svg {
-    stroke: url("#power-source");
     fill: none;
+}
+
+.activate-main-intro-animation .m-i-svg {
+    fill: none;
+    stroke: url("#power-source") !important; 
     stroke-width: 2;
+    animation: vein 27s cubic-bezier(1, 1, 0.565, 1) !important;
     fill: none;
-    stroke-dasharray: 4000;
+    stroke-dasharray: 10000;
     stroke-dashoffset: 1000;
 }
 
-.main-introduction-svg-animation #m-i-svg-line-php {
-    animation: vein 8s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #777bb3) 
-            drop-shadow(0 0 15px #4f5d95) 
-            drop-shadow(0 0 25px #4f5d95);
+.deactivate-main-intro-animation .m-i-svg {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein-r 3s cubic-bezier(1, 1, 0.565, 1) !important;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 1000;
 }
-
-.main-introduction-svg-animation #m-i-svg-line-js {
-    animation: vein 8.2s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #f7df1e) 
-            drop-shadow(0 0 15px #ffea70) 
-            drop-shadow(0 0 25px #ffea70);
-}
-
-.main-introduction-svg-animation #m-i-svg-line-react {
-    animation: vein 8.4s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #61dafb) 
-            drop-shadow(0 0 15px #00eaff) 
-            drop-shadow(0 0 25px #00eaff);
-}
-
-.main-introduction-svg-animation #m-i-svg-line-html {
-    animation: vein 8.6s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #e34c26) 
-            drop-shadow(0 0 15px #ff4500) 
-            drop-shadow(0 0 25px #ff4500);
-}
-
-.main-introduction-svg-animation #m-i-svg-line-css {
-    animation: vein 8.8s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #2965f1) 
-            drop-shadow(0 0 15px #1e90ff) 
-            drop-shadow(0 0 25px #1e90ff);
-}
-
-.main-introduction-svg-animation #m-i-svg-line-mysql {
-    animation: vein 9s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #00758f) 
-            drop-shadow(0 0 15px #f29111) 
-            drop-shadow(0 0 25px #f29111);
-}
-
-.main-introduction-svg-animation #m-i-svg-line-nodejs {
-    animation: vein 9s cubic-bezier(1, 1, 0.565, 1) infinite;
-    filter: drop-shadow(0 0 5px #68a063) 
-            drop-shadow(0 0 15px #4caf50) 
-            drop-shadow(0 0 25px #4caf50);
-}
-
-
-
-
 
 /*
 NODEJS
@@ -270,19 +256,11 @@ filter: drop-shadow(0 0 5px #00758f)
 */
 
 
-@keyframes vein {
-    from {
-        stroke-dashoffset: 10000;
-    } to {
-        stroke-dashoffset: 0;
-    }
-}
-
 .main-introduction .main-introduction-innerwrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 50px 130px;
+    padding: 50px 130px 50px 130px;
     align-items: center;
 }
 
@@ -305,11 +283,11 @@ filter: drop-shadow(0 0 5px #00758f)
 }
 
 .dev-img-inner img {
-    width: 110%;
-    height: 110%;
+    width: inherit;
+    height: inherit;
     object-fit: cover;
     image-rendering: crisp-edges;
-    object-position: -5px;
+    object-position: center;
 }
 
 .main-introduction-innerwrapper .developer-introduction {
@@ -364,6 +342,7 @@ filter: drop-shadow(0 0 5px #00758f)
     font-size: 0.9em;
     cursor: pointer;
     user-select: none;
+    font-weight: 700;
     transition: box-shadow 0.2s ease 0.2s,
                 background-color 0.3s ease 0.2s,
                 transform 0.2s ease 0.2s;
@@ -410,147 +389,38 @@ filter: drop-shadow(0 0 5px #00758f)
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    margin: 20px 100px;
+    margin: 20px 85px 20px 150px;
     justify-content: flex-end;
 }
 
-
+/* ICON SVGS ANIMATION */
 #php svg {
     animation: glow-ic-php 8s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
 
 #js svg {
-    animation: glow-ic-js 8.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+    animation: glow-ic-js 8.2s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
 
 #react svg {
-    animation: glow-ic-react 8.9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+    animation: glow-ic-react 8.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
 
 #html svg {
-    animation: glow-ic-html 9.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+    animation: glow-ic-html 8.6s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
 
 #css svg {
-    animation: glow-ic-css 9.9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+    animation: glow-ic-css 8.8s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
 
 #mysql svg {
-    animation: glow-ic-mysql 10.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+    animation: glow-ic-mysql 9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
 
 #nodejs svg {
-    animation: glow-ic-nodejs 10.9s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
+    animation: glow-ic-nodejs 9.4s cubic-bezier(1, 1, 0.565, 1) infinite 5s;
 }
-
-@keyframes glow-ic-php {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 15px #777bb3) 
-                drop-shadow(0 0 15px #4f5d95) 
-                drop-shadow(0 0 25px #4f5d95);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-@keyframes glow-ic-js {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 5px #f7df1e) 
-                drop-shadow(0 0 15px #ffea70) 
-                drop-shadow(0 0 25px #ffea70);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-@keyframes glow-ic-react {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 5px #61dafb) 
-                drop-shadow(0 0 15px #00eaff) 
-                drop-shadow(0 0 25px #00eaff);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-@keyframes glow-ic-html {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 5px #e34c26) 
-                drop-shadow(0 0 15px #ff4500) 
-                drop-shadow(0 0 25px #ff4500);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-@keyframes glow-ic-css {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 5px #2965f1) 
-                drop-shadow(0 0 15px #1e90ff) 
-                drop-shadow(0 0 25px #1e90ff);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-@keyframes glow-ic-mysql {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 5px #00758f) 
-                drop-shadow(0 0 15px #f29111) 
-                drop-shadow(0 0 25px #f29111);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-@keyframes glow-ic-nodejs {
-    0% {
-        filter: none;
-        fill: var(--dark-5);
-    } 50% {
-        filter: drop-shadow(0 0 5px #68a063) 
-                drop-shadow(0 0 15px #4caf50) 
-                drop-shadow(0 0 25px #4caf50);
-        fill: #fff;
-    } 100% {
-        filter: none;
-        fill: var(--dark-5);
-    }
-}
-
-
-
-
 
 .developer-lang-experties ul .icons {
     width: 50px;
@@ -559,9 +429,11 @@ filter: drop-shadow(0 0 5px #00758f)
     padding: 15px 20px;
     border-radius: 10px;
     margin: 0 10px;
+    /* transform: translateY(2rem); */
+    transform: translateX(2rem);
+    transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1),
+                transform 0.8s cubic-bezier(0.275, 0.382, 0.465, 1);
 }
-
-
 
 .developer-lang-experties ul .icons svg {
     width: 100%;
@@ -573,22 +445,6 @@ filter: drop-shadow(0 0 5px #00758f)
     animation-name: show-slow;
     animation-iteration-count: 1;
     animation-duration: 1.5s;
-}
-
-@keyframes show-slow {
-    0% {
-        opacity: 0;
-        scale: 0;
-        fill: var(--dark-5);
-    } 50% {
-        opacity: 0.5;
-        scale: 0.5;
-        filL: var(--info-1);
-    } 100% {
-        opacity: 1;
-        scale: 1;
-        fill: var(--dark-5);
-    }
 }
 
 .main-footer {
@@ -606,4 +462,161 @@ filter: drop-shadow(0 0 5px #00758f)
     border-radius: 20px;
     background-color: var(--dark-1);
 }
+
+
+
+/* MAIN INFORMATIONS DESIGN */
+.main-informations-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    /* border: 1px solid red; */
+    box-sizing: content-box;
+    margin-top: 250px;
+}
+
+.main-informations-wrapper .main-informations-innerwrapper {
+    margin: 30px;
+    /* border: 1px solid red; */
+}
+
+.main-informations-innerwrapper #work-immersion-letter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 2;
+    position: relative;
+}
+
+/* 
+#work-immersion-letter::before {
+    content: "";
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: var(--info-1);
+    background-color: transparent;
+    left: 35%;
+    box-shadow: 0 0 30px 30px var(--info-1);
+} */
+
+.main-informations-innerwrapper #work-immersion-letter .work-immersion-letter-innerwrapper {
+    z-index: 3;
+    /* border: 1px solid red; */
+    margin: 0 60px;
+    flex: 1;
+    border-radius: 35px;
+    padding: 40px 35px;
+    background-color: var(--dark-1);
+    font-family: "Fira Code", sans-serif;
+    font-size: 0.9em;
+    opacity: 1;
+    transform: translateX(-3rem);
+    transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1),
+                transform 0.4s cubic-bezier(0.275, 0.382, 0.465, 1);
+}
+
+.activate-information {
+    transform: translateX(0) !important;
+}
+
+.active-info-shadow::before {
+    content: "";
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 35%;
+    background-color: var(--info-1) !important;
+    animation: b-shadow-glow 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s forwards;
+}
+
+@keyframes b-shadow-glow {
+    from {
+        box-shadow: 0 0 30px 30px var(--info-1);
+    } to {
+        box-shadow: 0 0 300px 300px var(--info-1) !important;
+    }
+}
+
+@keyframes l-t-r-work-i-l {
+    to {
+        transform: translateX(0%);
+    }
+}
+
+#work-immersion-letter .work-immersion-letter-innerwrapper:first-child .top-most-header {
+    color: var(--light-4);    
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 1.2em !important;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+#work-immersion-letter .work-immersion-letter-innerwrapper:last-child .top-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#work-immersion-letter .work-immersion-letter-innerwrapper:first-child .heading-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--light-1);
+    margin: 15px 0;
+}
+
+#work-immersion-letter .work-immersion-letter-innerwrapper:first-child .heading-1 p:first-child {
+    margin-right: auto;
+    /* color: red; */
+}
+
+#work-immersion-letter .work-immersion-letter-innerwrapper:first-child .contents {
+    color: var(--dark-7);
+    text-align: justify;
+}
+
+.work-immersion-letter-innerwrapper:first-child .content-1 p:first-child {
+    margin: 10px 0;
+}
+
+.work-immersion-letter-innerwrapper:first-child .content-1 p:last-child {
+    text-indent: 50px;
+    padding-left: 20px;
+}
+
+.work-immersion-letter-innerwrapper:first-child .content-2 p:first-child {
+    margin: 10px 0;
+}
+
+.work-immersion-letter-innerwrapper:first-child .content-2 p:nth-child(2) {
+    margin-top: 10px;
+}
+
+.content-2 .list {
+    padding-left: 45px;
+    list-style-type: decimal;
+}
+
+.work-immersion-letter-innerwrapper:first-child .content-3 p:first-child {
+    margin: 10px 0;
+}
+
+.work-immersion-letter-innerwrapper:first-child .content-3 p:last-child {
+    padding-left: 20px;
+}
+
+
+.main-informations-innerwrapper #work-immersion-letter .inf-icon-1 {
+    /* TODO */
+    max-width: 400px;
+    height: 400px;
+    flex: 1;
+}
+
 
