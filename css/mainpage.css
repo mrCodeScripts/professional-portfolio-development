@@ -90,7 +90,7 @@ body {
   /* overflow: hidden; */
   position: relative;
   cursor: pointer;
-  user-select: none;
+  user-select: noneGkjkj;
 }
 
 .nav-btns .dropdown {
@@ -970,4 +970,19 @@ filter: drop-shadow(0 0 5px #00758f)
 
 .inf-bx-table tbody .row .row-value {
   padding-left: 90px !important;
+}
+
+#resume-img {
+  width: 500px;
+  height: auto;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#resume-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
