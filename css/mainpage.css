@@ -707,4 +707,34 @@ filter: drop-shadow(0 0 5px #00758f)
 .inf-letter .top-head-ln2 {
   font-size: 1.1em !important;
   color: var(--light-4);
+  margin: 10px 0;
+}
+
+.inf-letter .inf-letter-main {
+  color: var(--dark-7);
+  text-align: justify;
+  text-indent: 50px;
+  margin: 10px 0;
+}
+
+.inf-bx .inf-bx-innerwrapper  
+.inf-bx-tb .inf-bx-table {
+  border: none;
+  color: var(--dark-7);
+}
+
+.inf-bx .inf-bx-innerwrapper  
+.inf-bx-tb .inf-bx-table .top-header-table {
+  font-size: 1.2em;
+  color: var(--light-4);
+  padding: 20px 0 !important;
+}
+
+.inf-bx .inf-bx-innerwrapper .inf-bx-tb .inf-bx-table tbody tr {
+  margin: 20px 0 !important;
+  border: 1px solid var(--dark-7) !important;
+}
+
+.inf-bx-table tbody .row .row-value {
+  padding-left: 90px !important;
 }
