@@ -475,18 +475,17 @@ filter: drop-shadow(0 0 5px #00758f)
     box-sizing: content-box;
     margin-top: 250px;
     position: relative;
+    /* border: 1px solid red; */
 }
 
 .main-informations-wrapper .main-informations-svg-animations {
-    border: 1px solid red;
     position: absolute;
     width: inherit;
-    height: 100%;
     opacity: 0;
     transform: translateY(-80%);
     left: 0;
     stroke: url("#power-source-2") !important;
-    transition: opacity 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s;
+    transition: opacity 5s cubic-bezier(0.175, 0.885, 0.232, 1.275) 2s;
     stroke-width: 2 !important;
     z-index: -1;
 }
@@ -666,19 +665,122 @@ filter: drop-shadow(0 0 5px #00758f)
 
 /* LETTER MODIFICATION */
 /* Objective: Clean Code */
-.inf-bx {
-    z-index: 8 !important;
-    margin: 200px 60px;
+.inf-bx .inf-bx-innerwrapper {
+    z-index: 2 !important;
+    margin: 300px 60px 0 60px;
     flex: 1;
     border-radius: 35px;
     padding: 40px 35px;
     background-color: var(--dark-1);
     font-family: "Fira Code", sans-serif;
     font-size: 0.9em;
-    opacity: 1;
-    transform: translateX(-3rem);
+    opacity: 1 !important;
+    transform: translateX(-2rem);
+    position: relative;
     transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1),
                 transform 0.4s cubic-bezier(0.275, 0.382, 0.465, 1);
+}
+
+.inf-bx .inf-svg-animations {
+  position: absolute;
+  width: inherit;
+  opacity: 0;
+  transform: translateY(-80%);
+  left: 0;
+  stroke: url("#power-source-2") !important;
+  transition: opacity 5s cubic-bezier(0.175, 0.885, 0.232, 1.275) 2s;
+  stroke-width: 2 !important;
+  z-index: -2 !important;
+}
+
+.show_svg .inf-svg-animations {
+  opacity: 1;
+}
+
+.hide_svg .inf-svg-animations {
+  opacity: 0;
+}
+
+.activate-inf-bx-anim .inf-svg-animations .m-i-svg {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein 10s cubic-bezier(0.122, 0.444, 0.777, 1) 0.6s 1 !important;
+    fill: none;
+    stroke-dasharray: 6000;
+    stroke-dashoffset: 1000;
+}
+
+.deactivate-inf-bx-anim .inf-svg-animations .m-i-svg {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein-r 9s cubic-bezier(1, 1, 0.565, 1) 0.6s 1 !important;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 1000;
+}
+
+/* .main-introduction-svg-animation .m-i-svg {
+    fill: none;
+}
+
+.activate-main-intro-animation .m-i-svg {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein 27s cubic-bezier(1, 1, 0.565, 1) !important;
+    fill: none;
+    stroke-dasharray: 10000;
+    stroke-dashoffset: 1000;
+}
+
+.deactivate-main-intro-animation .m-i-svg {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein-r 3s cubic-bezier(1, 1, 0.565, 1) !important;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 1000;
+} */
+
+.activate-inf-bx .inf-bx-innerwrapper {
+  transform: translateX(0) !important;
+}
+
+.active-inf-bx-shadow::before {
+  content: "";
+  z-index: -1;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  background-color: var(--info-1) !important;
+  animation: b-shadow-glow-2 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3s forwards;
+}
+
+.inactive-inf-bx-shadow::before {
+  content: "";
+  z-index: -1;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  background-color: var(--info-1) !important;
+  animation: b-shadow-glow-hide 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3s forwards;
+}
+
+@keyframes b-shadow-glow-2 {
+  to {
+    box-shadow: 0 0 200px 200px var(--info-1);
+  }
+}
+
+@keyframes b-shadow-glow-hide {
+  to {
+    box-shadow: 0 0 200px 200px var(--info-1);
+  }
 }
 
 .inf-bx .inf-bx-innerwrapper {
@@ -721,18 +823,22 @@ filter: drop-shadow(0 0 5px #00758f)
 .inf-bx-tb .inf-bx-table {
   border: none;
   color: var(--dark-7);
+  border-collapse: collapse;
 }
 
 .inf-bx .inf-bx-innerwrapper  
 .inf-bx-tb .inf-bx-table .top-header-table {
   font-size: 1.2em;
   color: var(--light-4);
-  padding: 20px 0 !important;
+  padding: 30px 0;
 }
 
-.inf-bx .inf-bx-innerwrapper .inf-bx-tb .inf-bx-table tbody tr {
-  margin: 20px 0 !important;
-  border: 1px solid var(--dark-7) !important;
+.inf-bx .inf-bx-innerwrapper .inf-bx-tb Table tbody tr {
+  border-bottom: 1px solid var(--dark-8);
+}
+
+.inf-bx .inf-bx-innerwrapper .inf-bx-tb Table tbody tr td {
+  padding: 20px 0; 
 }
 
 .inf-bx-table tbody .row .row-value {
