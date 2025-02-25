@@ -488,9 +488,9 @@ filter: drop-shadow(0 0 5px #00758f)
 .main-informations-wrapper .main-informations-svg-animations {
   position: absolute;
   width: inherit;
-  height: 100%;
+  height: 20%;
   opacity: 0;
-  transform: translateY(-80%);
+  transform: translateY(-90%);
   left: 0;
   stroke: url("#power-source-2") !important;
   transition: opacity 5s cubic-bezier(0.175, 0.885, 0.232, 1.275) 2s;
