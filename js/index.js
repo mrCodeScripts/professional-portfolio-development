@@ -1,5 +1,4 @@
 "use strict";
-
 const lang_experties = document.querySelectorAll(".developer-lang-experties ul .icons");
 const svg_lang_exp = document.querySelector(".main-introduction-svg-animation");
 const prog_line_svg = document.querySelectorAll(".main-introduction-svg-animation .m-i-svg");
@@ -23,7 +22,6 @@ const prog_lang_obs = new IntersectionObserver((e) => {
    })
 });
 lang_experties.forEach(i => prog_lang_obs.observe(i));
-
 const w_i_l = document.querySelector("#work-immersion-letter .work-immersion-letter-innerwrapper");
 const w_i = document.getElementById("work-immersion-letter");
 const m_i_svg_anim = document.getElementById("main-information-svg");
@@ -49,7 +47,6 @@ const info_obs = new IntersectionObserver((e) => {
   });
 });
 info_obs.observe(w_i_l);
-
 const inf = document.querySelectorAll(".inf-bx");
 const inf_svg = document.querySelectorAll(".inf-bx .inf-svg-animations");
 const inf_bx = new IntersectionObserver((e) => {
@@ -74,3 +71,23 @@ const inf_bx = new IntersectionObserver((e) => {
   })
 });
 inf.forEach(i => {inf_bx.observe(i)});
+
+let _yscroll = 0;
+document.addEventListener("scroll", (e) => {
+  const yscroll = window.scrollY;
+  console.log(window.scrollY);
+  if (yscroll <= _yscroll && yscroll !== 0) {
+    document.querySelector(".main-header").classList.add("active-header");
+    document.querySelector(".main-header").classList.remove("inactive-header");
+  } else {
+    document.querySelector(".main-header").classList.remove("active-header");
+    document.querySelector(".main-header").classList.add("inactive-header");
+  };
+
+  if (yscroll + 100 <= 300){
+    document.querySelector(".main-header").classList.remove("active-header");
+    document.querySelector(".main-header").classList.remove("inactive-header");   
+  } 
+  
+  _yscroll = yscroll;
+});

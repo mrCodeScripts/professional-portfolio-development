@@ -33,7 +33,22 @@ body {
   height: auto;
   margin-bottom: 50px;
   z-index: 100;
+  position: fixed;
+  transition: transform 0.5s ease,
+              background-color 0.5s ease;
 }
+
+
+.active-header {
+  transform: translateY(0%);
+  background-color: var(--dark-3);
+}
+
+.inactive-header {
+  transform: translateY(-100%);
+}
+
+
 
 .main-header .inner-header {
   display: flex;
@@ -260,8 +275,8 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: 100px;
 }
-
 
 /* Main Introduction SVG Animations */
 .main-introduction .main-introduction-svg-animation {
