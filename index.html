@@ -17,12 +17,25 @@
         </div>
       </div>
       <div id="navigations">
-        <a type="button" href="#work-immersion-student-inf-letter" class="nav-btns nv-2"><span class="btn-text">Student Informations</span></a>
-        <a type="button" class="nav-btns nv-3"><span class="btn-text">Immersion</span></a>
-        <a type="button" class="nav-btns nv-4"><span class="btn-text">Portfolio Entry</span></a>
-        <a type="button" class="nav-btns nv-5 special-menu"><span class="btn-text menu">
+        <button type="button" href="#work-immersion-student-inf-letter" class="nav-btns nv-2"><span class="btn-text">Student Informations</span></button>
+        <button type="button" class="nav-btns nv-3"><span class="btn-text">Immersion</span>
+          <div class="dropdown">
+            <ul class="inner-dropdown">
+              <li class="inner-drop-list" onclick="location.href='#work-immersion-letter'">
+                Immersion Letter
+              </li>
+              <li class="inner-drop-list" onclick="location.href='#work-immersion-request-for-work'">
+                Immersion Request 
+              </li>
+              <li class="inner-drop-list" onclick="location.href='#work-endorsement-letter'">
+                Endoresement Letter
+              </li>
+            </ul>
+        </button>
+        <button type="button" title="" class="nav-btns nv-4"><span class="btn-text">Portfolio Entry</span></button>
+        <button title="menu" type="button" class="nav-btns nv-5 special-menu"><span class="btn-text menu">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#f2ebeb"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-        </span></a>
+        </span></button>
       </div>
     </div>
   </header>
@@ -324,7 +337,7 @@
       </div>
 
       <div class="inf-bx" id="work-endorsement-letter">
-        <svg class="inf-svg-animations" viewBox="0 0 1358 640" id="main-information-svg">
+        <svg class="inf-svg-animations" viewBox="0 0 1358 640">
           <defs>
             <linearGradient id="power-source-2" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
                 <stop offset="10%" stop-color="#fff" />
@@ -373,7 +386,7 @@
       </div>
 
       <div class="inf-bx" id="work-immersion-request-for-work">
-        <svg class="inf-svg-animations" viewBox="0 0 1358 640" id="main-information-svg">
+        <svg class="inf-svg-animations" viewBox="0 0 1358 640">
           <defs>
             <linearGradient id="power-source-2" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
                 <stop offset="10%" stop-color="#fff" />
@@ -413,7 +426,7 @@
       </div>
 
       <div class="inf-bx" id="work-immersion-student-inf-letter">
-        <svg class="inf-svg-animations" viewBox="0 0 1358 640" id="main-information-svg">
+        <svg class="inf-svg-animations" viewBox="0 0 1358 640">
           <defs>
             <linearGradient id="power-source-2" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
                 <stop offset="10%" stop-color="#fff" />
