@@ -486,7 +486,6 @@ filter: drop-shadow(0 0 5px #00758f)
 }
 
 .main-informations-wrapper .main-informations-svg-animations {
-  border: 1px solid red;
   position: absolute;
   width: inherit;
   height: 100%;
