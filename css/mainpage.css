@@ -183,7 +183,7 @@ body {
 /* Main Introduction SVG Animations */
 .main-introduction .main-introduction-svg-animation {
     position: absolute;
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(-10px);
     /* border: 1px solid red; */
     width: 100%;
     height: 100%;
@@ -382,14 +382,14 @@ filter: drop-shadow(0 0 5px #00758f)
 .developer-lang-experties {
     width: 100%;
     height: auto;
-    margin-top: 125px;
+    margin-top: 165px;
 }
 
 .developer-lang-experties .lang-icon-container {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    margin: 20px 85px 20px 150px;
+    margin: 20px 100px 20px 140px;
     justify-content: flex-end;
 }
 
@@ -474,6 +474,48 @@ filter: drop-shadow(0 0 5px #00758f)
     /* border: 1px solid red; */
     box-sizing: content-box;
     margin-top: 250px;
+    position: relative;
+}
+
+.main-informations-wrapper .main-informations-svg-animations {
+    border: 1px solid red;
+    position: absolute;
+    width: inherit;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(-80%);
+    left: 0;
+    stroke: url("#power-source-2") !important;
+    transition: opacity 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s;
+    stroke-width: 2 !important;
+    z-index: -1;
+}
+
+.activate-main-info-animation {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein 10s cubic-bezier(0.122, 0.444, 0.777, 1) 0.6s 1 !important;
+    fill: none;
+    stroke-dasharray: 6000;
+    stroke-dashoffset: 1000;
+}
+
+.deactivate-main-info-animation {
+    fill: none;
+    stroke: url("#power-source") !important; 
+    stroke-width: 2;
+    animation: vein-r 9s cubic-bezier(1, 1, 0.565, 1) 0.6s 1 !important;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 1000;
+}
+
+.main-informations-svg-animations .m-i {
+    stroke: var(--dark-2); 
+}
+
+.main-informations-svg-animations .m-i-main {
+
 }
 
 .main-informations-wrapper .main-informations-innerwrapper {
@@ -525,19 +567,20 @@ filter: drop-shadow(0 0 5px #00758f)
 
 .active-info-shadow::before {
     content: "";
-    z-index: 2;
+    z-index: -1;
     width: 30px;
     height: 30px;
     position: absolute;
     left: 35%;
     background-color: var(--info-1) !important;
-    animation: b-shadow-glow 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s forwards;
+    animation: b-shadow-glow 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3s forwards;
 }
 
 @keyframes b-shadow-glow {
-    from {
-        box-shadow: 0 0 30px 30px var(--info-1);
-    } to {
+    /* from { */
+        /* box-shadow: 0 0 30px 30px var(--info-1); */
+    /* }  */
+    to {
         box-shadow: 0 0 300px 300px var(--info-1) !important;
     }
 }
@@ -620,3 +663,48 @@ filter: drop-shadow(0 0 5px #00758f)
 }
 
 
+
+/* LETTER MODIFICATION */
+/* Objective: Clean Code */
+.inf-bx {
+    z-index: 8 !important;
+    margin: 200px 60px;
+    flex: 1;
+    border-radius: 35px;
+    padding: 40px 35px;
+    background-color: var(--dark-1);
+    font-family: "Fira Code", sans-serif;
+    font-size: 0.9em;
+    opacity: 1;
+    transform: translateX(-3rem);
+    transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1),
+                transform 0.4s cubic-bezier(0.275, 0.382, 0.465, 1);
+}
+
+.inf-bx .inf-bx-innerwrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.inf-bx .inf-bx-innerwrapper .inf-letter {
+  display: flex;
+  flex-direction: column;
+  color: var(--dark-7)
+}
+
+.inf-letter .top-head-ln1 {
+  font-size: 1.2em !important;
+  text-transform: uppercase;
+  color: var(--light-4);
+}
+
+.inf-letter .centered {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.inf-letter .top-head-ln2 {
+  font-size: 1.1em !important;
+  color: var(--light-4);
+}

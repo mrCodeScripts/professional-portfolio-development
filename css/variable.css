@@ -157,8 +157,8 @@
 .glow-bg {
     animation-name: glow-bg !important;
     animation-duration: 1s !important;
-    animation-delay: 1.5s; */
-    mation-iteration-count: 1 !i
+    animation-delay: 1.5s;
+    animation-iteration-count: 1;
 }
 
 @keyframes glow-bg {

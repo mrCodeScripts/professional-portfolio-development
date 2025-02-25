@@ -55,7 +55,7 @@ class blParticles {
             this.vy *= -1;
         }
         if (this.x + this.r > width) {
-            this.x = width - this.r;
+        this.x = width - this.r;
         }
         if (this.x - this.r < 0) {
             this.x = this.r;
@@ -128,34 +128,29 @@ function resolveCollision(b1, b2) {
 }
 
 function animation () {
-    ctx.clearRect(0, 0, width, height);
-    container.forEach(particle => {
-        particle.render(); 
-        particle.move();
-        particle.randomMoves(-0.01, 0.01);
-    });
+   ctx.clearRect(0, 0, width, height);
+   container.forEach(particle => {
+      particle.render(); 
+      particle.move();
+      particle.randomMoves(-0.01, 0.01);
+   });
 
-    for (let i = 0; i < container.length; i++) {
-        for (let j = i + 1; j < container.length; j++) { 
-            const b1 = container[i];
-            const b2 = container[j];
-
-            const dx = b2.x - b1.x;
-            const dy = b2.y - b1.y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-
-            if (b1 === b2) return;
-
-            if (d <= b1.r + b2.r) {
-                resolveCollision(b1, b2);
-                
-            }
-
-            const ballD = d - (b1.r + b2.r);
-
-            // REMINDER: THIS PART OF THE CODE IS NOT IMPLEMENTED (NO TOUCH DETECTION)
-        }
-    }
+   for (let i = 0; i < container.length; i++) {
+      for (let j = i + 1; j < container.length; j++) { 
+         const b1 = container[i];
+         const b2 = container[j];
+         const dx = b2.x - b1.x;
+         const dy = b2.y - b1.y;
+         const d = Math.sqrt(dx * dx + dy * dy);
+         if (b1 === b2) return;
+         if (d <= b1.r + b2.r) {
+               resolveCollision(b1, b2);
+               
+         }
+         const ballD = d - (b1.r + b2.r);
+         // REMINDER: THIS PART OF THE CODE IS NOT IMPLEMENTED (NO TOUCH DETECTION)
+      }
+   }
 }
 
 window.setInterval(() => animation(), fps/1000);
