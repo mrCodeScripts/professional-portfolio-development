@@ -26,7 +26,6 @@ const w_i_l = document.querySelector("#work-immersion-letter .work-immersion-let
 const w_i = document.getElementById("work-immersion-letter");
 const m_i_svg_anim = document.getElementById("main-information-svg");
 const m_i_svg_anim_1 = document.querySelector("#main-information-svg #m-i-1");
-console.log(m_i_svg_anim);
 const info_obs = new IntersectionObserver((e) => {
   e.forEach(el => {
     if (el.isIntersecting) {
@@ -75,7 +74,6 @@ inf.forEach(i => {inf_bx.observe(i)});
 let _yscroll = 0;
 document.addEventListener("scroll", (e) => {
   const yscroll = window.scrollY;
-  console.log(window.scrollY);
   if (yscroll <= _yscroll && yscroll !== 0) {
     document.querySelector(".main-header").classList.add("active-header");
     document.querySelector(".main-header").classList.remove("inactive-header");
