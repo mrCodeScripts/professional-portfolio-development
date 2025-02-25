@@ -83,7 +83,7 @@ body {
   width: 200px;
   height: auto;
   top: 4rem;
-  left: 0;
+  left: -30%;
   cursor: pointer;
   border-radius: 20px;
   display: flex;
@@ -119,6 +119,9 @@ body {
   list-style-type: none;
   display: flex;
   flex-direction: column !important;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .nav-btns .dropdown .inner-dropdown .inner-drop-list {
